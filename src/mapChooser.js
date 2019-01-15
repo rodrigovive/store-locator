@@ -1,5 +1,5 @@
 function mapChooser (location) {
-  return `${location}.jpg`
+  return `${location || 'none'}.png`
 }
 
 export default mapChooser;

@@ -47,6 +47,17 @@ describe('When a location is passed to it',()=>{
 
   })
 
+  it('call a function passed to it when clicked', () => {
+
+    const mockCallBack = jest.fn();
+
+    const mountedButtonWithCallback = shallow(<Button handleClick={mockCallBack}/>)
+    mountedButtonWithCallback.find('button').simulate('click');
+
+    expect(mockCallBack.mock.calls.length).toEqual(1);
+
+  })
+
 })
 
 describe('When a location not is passed to it',()=>{

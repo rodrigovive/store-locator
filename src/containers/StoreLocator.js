@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Header from '../components/Header'
 import Button from '../components/Button'
 import Map from '../components/Map'
+import mapChooser from '../mapChooser'
 
 class StoreLocator extends Component {
 
@@ -14,10 +15,10 @@ class StoreLocator extends Component {
 
     this.shops = [
       {
-        'location': 'Prtland',
+        'location': 'portland',
         'address': '123 Stress',
       }, {
-        'location': 'Astoria',
+        'location': 'astoria',
         'address': '123 Astoria',
       }, {
         'location': '',
@@ -25,10 +26,18 @@ class StoreLocator extends Component {
       }]
   }
 
+  chooseMap = (e) => {
+
+    this.setState({
+      currentMap: mapChooser(e.target.value)
+    })
+
+  }
+
   render () {
     let storeButton = this.shops.map((shop, index) => {
 
-      return (<Button key={index} location={shop.location}/>)
+      return (<Button handleClick={this.chooseMap} key={index} location={shop.location}/>)
 
     })
 
