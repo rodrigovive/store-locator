@@ -6,7 +6,7 @@ class Header extends Component {
   render() {
     return (
       <div className="App-header">
-        <p>this is the header.</p>
+        <img src="images/wired-brain-coffee-logo.png" alt="Wired coffee" />
       </div>
     )
   }

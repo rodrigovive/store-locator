@@ -26,11 +26,11 @@ describe("Store Locator",function () {
 
   })
 
-  it('renders two buttons',() => {
+  it('renders three buttons',() => {
 
     const buttons = mountedStoreLocator.find('Button')
 
-    expect(buttons.length).toBe(2);
+    expect(buttons.length).toBe(3);
 
   })
 

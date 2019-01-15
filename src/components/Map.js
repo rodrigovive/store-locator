@@ -1,12 +1,11 @@
 import React, {Component} from 'react'
-import ReactDOM from 'react-dom'
 
 class Map extends Component {
 
   render() {
 
     return (<div>
-      <img src="default.jpg" alt=""/>
+      <img src={`images/${this.props.imagename || 'none.png'}`} alt={this.props.location}/>
     </div>)
 
   }
