@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import StoreLocator from '../StoreLocator';
 import {shallow} from 'enzyme'
+import axios from 'axios'
 
 describe("Store Locator",function () {
 
@@ -10,6 +11,39 @@ describe("Store Locator",function () {
   beforeEach(() => {
 
     mountedStoreLocator = shallow(<StoreLocator />)
+
+  })
+
+  it('calls axios,get in #componentDidMount',() => {
+
+    return mountedStoreLocator.instance().componentDidMount().then(() => {
+
+      expect(axios.get).toHaveBeenCalled();
+
+    })
+
+  })
+
+  it('calls axios.get with correct url', () => {
+
+    return mountedStoreLocator.instance().componentDidMount().then(() => {
+
+      expect(axios.get).toHaveBeenCalledWith('http://localhost:3000/data/shops.json')
+
+    })
+
+  })
+
+  it('updates state with api data',() => {
+
+    return mountedStoreLocator.instance().componentDidMount().then(() => {
+      expect(mountedStoreLocator.state()).toHaveProperty('shops',[
+        {
+          "location": "test location",
+          "address": "test address"
+        }
+      ])
+    })
 
   })
 
@@ -26,11 +60,21 @@ describe("Store Locator",function () {
 
   })
 
-  it('renders three buttons',() => {
+  it('renders buttons for shops',() => {
+
+
+    return mountedStoreLocator.instance().componentDidMount().then(() => {
+      const buttons = mountedStoreLocator.find('Button')
+      expect(mountedStoreLocator.state().shops.length).toBe(buttons.length)
+    })
+
+  })
+
+  it('renders cero buttons',() => {
 
     const buttons = mountedStoreLocator.find('Button')
 
-    expect(buttons.length).toBe(3);
+    expect(buttons.length).toBe(0);
 
   })
 

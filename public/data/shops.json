@@ -1,0 +1,16 @@
+{
+  "shops": [
+    {
+      "location": "portland",
+      "address": "123 Stress"
+    },
+    {
+      "location": "astoria",
+      "address": "123 Astoria"
+    },
+    {
+      "location": "",
+      "address": ""
+    }
+  ]
+}

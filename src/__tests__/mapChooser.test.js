@@ -8,7 +8,7 @@ describe("mapChooser",function () {
   })
 
   it("when file name not is passed to it", function () {
-    let expected = "default.png"
+    let expected = "none.png"
     let actual = mapChooser()
     expect(actual).toEqual(expected)
   })
