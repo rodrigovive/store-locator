@@ -11,8 +11,9 @@ describe("App",function () {
 
   it('renders a Store Locator', () => {
 
-    //let mountedApp = shallow(<App />)
-
+    let mountedApp = shallow(<App />)
+    const locators = mountedApp.find('StoreLocator');
+    expect(locators.length).toBe(1);
 
   })
 })

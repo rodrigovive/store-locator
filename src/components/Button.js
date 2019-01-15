@@ -5,7 +5,7 @@ class Button extends Component{
 
   render() {
 
-    return (<div>I'm Button</div>)
+    return (<button>Click Me!!!</button>)
   }
 
 }

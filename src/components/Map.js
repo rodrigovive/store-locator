@@ -6,7 +6,7 @@ class Map extends Component {
   render() {
 
     return (<div>
-      Hi there guys
+      <img src="default.jpg" alt=""/>
     </div>)
 
   }
